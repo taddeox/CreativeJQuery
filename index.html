@@ -1,0 +1,30 @@
+<head>
+    <script
+        src="http://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script>
+    $(document).ready(function(){
+        var num = Math.floor(Math.random()*150) + 1;
+
+        var url = "https://pokeapi.co/api/v2/pokemon/" + num + "/";
+        $.getJSON(url,function(data){
+            console.log(data);
+            $("#pokePic").attr("src",data.sprites.front_default);
+            $("#pokeName").html(data.species.name);
+        })
+        .done(function() { console.log('getJSON request succeeded!'); })
+        .fail(function(jqXHR, textStatus, errorThrown) {
+            console.log('getJSON request failed! ' + textStatus);
+            console.log("incoming "+jqXHR.responseText);
+        })
+        .always(function() { console.log('getJSON request ended!');
+        });
+    });
+    </script>
+
+</head>
+<body>
+<img id = "pokePic" src="">
+<p id= "pokeName"></p>
+</body>
