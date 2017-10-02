@@ -17,7 +17,12 @@
     function initialize(){
         document.getElementById("sound").play();
         answer = -1;
-        
+        $("#pokePic1").attr("src","https://media.giphy.com/media/8hhRga8cVEeFa/giphy.gif");
+        $("#pokePic2").attr("src","https://media.giphy.com/media/8hhRga8cVEeFa/giphy.gif");
+        $("#pokePic3").attr("src","https://media.giphy.com/media/8hhRga8cVEeFa/giphy.gif");
+        $("#pokePic4").attr("src","https://media.giphy.com/media/8hhRga8cVEeFa/giphy.gif");        
+        $("#pokeName").html("Loading...");
+
         var finished = 1;
         var tempAns = Math.floor(Math.random()*4)+1;
         var count = 1;
@@ -86,4 +91,6 @@
 <img onclick="madeGuess('3');" id = "pokePic3"  src="https://media.giphy.com/media/8hhRga8cVEeFa/giphy.gif"/>
 <img onclick="madeGuess('4');" id = "pokePic4"  src="https://media.giphy.com/media/8hhRga8cVEeFa/giphy.gif"/>
 </div>
+
+<h3>Click on the image matching the Pokemon's name (once it loads)</h3>
 </body>
