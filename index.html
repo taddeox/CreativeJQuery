@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <head>
     <link rel="stylesheet" type="text/css" href="main.css">
 
@@ -5,7 +6,12 @@
         src="http://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
+
     <script>
+    window.onload = function(){
+       document.getElementById("sound").play();
+    }
+
     var answer = -1;
     $(document).ready(function(){
         var tempAns = answer = Math.floor(Math.random()*4)+1;
@@ -13,8 +19,7 @@
         console.log(tempAns);
         for(i = 1; i < 5; i++){
             console.log(i);
-            var num = Math.floor(Math.random()*150) + 1;
-        
+            var num = Math.floor(Math.random()*150) + 1;        
             var url = "https://pokeapi.co/api/v2/pokemon/" + num + "/";
             $.getJSON(url,function(data){
                 console.log(data);
@@ -52,7 +57,7 @@
     }
     </script>
 </head>
-
+<audio id="sound" preload="auto"><source src="poke-who.wav" type="audio/wav"> sound</audio>
 <div id="myHead">
     <h1>WHO'S THAT POKEMON?!?!</h1>
 </div>
