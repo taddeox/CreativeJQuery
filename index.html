@@ -14,8 +14,9 @@
 
     var answer = -1;
     $(document).ready(function(){
-        var tempAns = answer = Math.floor(Math.random()*4)+1;
+        var tempAns = Math.floor(Math.random()*4)+1;
         var count = 1;
+        var nameAns = "";
         console.log(tempAns);
         for(i = 1; i < 5; i++){
             console.log(i);
@@ -28,14 +29,18 @@
                 $(picString).attr("src",data.sprites.front_default);
                 
                 if(count == tempAns){
-                    console.log("if statement");
-                    $("#pokeName").html(data.species.name);
+                    nameAns = data.species.name;
                 }
+
                 count = count+1;
             })
             .done(function() 
             {
                 answer = tempAns;
+
+                if(nameAns != ""){
+                    $("#pokeName").html(nameAns);
+                }
                 console.log('getJSON request succeeded!'); 
             })
             .fail(function(jqXHR, textStatus, errorThrown) {
@@ -45,6 +50,7 @@
             .always(function() { console.log('getJSON request ended!');
             });
         }
+        
     });
     
     function madeGuess(pokeNum){
@@ -62,8 +68,8 @@
     <h1>WHO'S THAT POKEMON?!?!</h1>
 </div>
 <body>
+<h2 id = "pokeName">Loading...</h2>
 <img onclick="madeGuess('1');" id = "pokePic1"  src="https://media.giphy.com/media/8hhRga8cVEeFa/giphy.gif"/>
-<p id= "pokeName">test</p>
 <img onclick="madeGuess('2');" id = "pokePic2"  src="https://media.giphy.com/media/8hhRga8cVEeFa/giphy.gif"/>
 <img onclick="madeGuess('3');" id = "pokePic3"  src="https://media.giphy.com/media/8hhRga8cVEeFa/giphy.gif"/>
 <img onclick="madeGuess('4');" id = "pokePic4"  src="https://media.giphy.com/media/8hhRga8cVEeFa/giphy.gif"/>
