@@ -1,0 +1,18 @@
+body{
+    background-color:black;
+}
+p{
+    color:#F3F7F0;
+}
+h1{
+    color:#F3F7F0;
+    text-align:center;
+    font-size:500%;
+}
+div{
+    background-color:#EF3E36;
+}
+img{
+    width:  200px;
+    height: 200px;    
+}

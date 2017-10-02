@@ -15,7 +15,11 @@
             $("#pokePic").attr("src",data.sprites.front_default);
             $("#pokeName").html(data.species.name);
         })
-        .done(function() { console.log('getJSON request succeeded!'); })
+        .done(function() 
+        {
+            answer = Math.floor(Math.random()*4)+1; 
+            console.log('getJSON request succeeded!'); 
+        })
         .fail(function(jqXHR, textStatus, errorThrown) {
             console.log('getJSON request failed! ' + textStatus);
             console.log("incoming "+jqXHR.responseText);
@@ -23,6 +27,10 @@
         .always(function() { console.log('getJSON request ended!');
         });
     });
+
+        fuction madeGuess(num){
+            console.log(num);
+        }
     </script>
 </head>
 
@@ -30,6 +38,6 @@
     <h1>WHO'S THAT POKEMON?!?!</h1>
 </div>
 <body>
-<input type="image" id = "pokePic" src="https://media.giphy.com/media/8hhRga8cVEeFa/giphy.gif">
+<img id = "pokePic"  src="https://media.giphy.com/media/8hhRga8cVEeFa/giphy.gif">
 <p id= "pokeName">test</p>
 </body>
