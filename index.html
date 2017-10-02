@@ -1,4 +1,6 @@
 <head>
+    <link rel="stylesheet" type="text/css" href="main.css">
+
     <script
         src="http://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -6,7 +8,7 @@
     <script>
     $(document).ready(function(){
         var num = Math.floor(Math.random()*150) + 1;
-
+        
         var url = "https://pokeapi.co/api/v2/pokemon/" + num + "/";
         $.getJSON(url,function(data){
             console.log(data);
@@ -22,9 +24,12 @@
         });
     });
     </script>
-
 </head>
+
+<div id="myHead">
+    <h1>WHO'S THAT POKEMON?!?!</h1>
+</div>
 <body>
-<img id = "pokePic" src="">
-<p id= "pokeName"></p>
+<input type="image" id = "pokePic" src="https://media.giphy.com/media/8hhRga8cVEeFa/giphy.gif">
+<p id= "pokeName">test</p>
 </body>
