@@ -8,10 +8,6 @@
         crossorigin="anonymous"></script>
 
     <script>
-    window.onload = function(){
-       document.getElementById("sound").play();
-    }
-
     var answer = -1;
     
     function initialize(){
@@ -27,15 +23,13 @@
         var tempAns = Math.floor(Math.random()*4)+1;
         var count = 1;
         var nameAns = "";
-        console.log(tempAns);
         for(i = 1; i < 5; i++){
-            console.log(i);
             var num = Math.floor(Math.random()*700) + 1;        
             var url = "https://pokeapi.co/api/v2/pokemon/" + num + "/";
             $.getJSON(url,function(data){
                 console.log(data);
+
                 var picString = "#pokePic" + count;
-                console.log(picString);
                 $(picString).attr("src",data.sprites.front_default);
                 
                 if(count == tempAns){
@@ -69,11 +63,17 @@
     });
     
     function madeGuess(pokeNum){
-        console.log(pokeNum);
-        console.log(answer);
         if(answer != -1 && answer == pokeNum)
         {
             console.log("YOU WON!!");
+            $("#explain").html("CORRECT!!!!!");
+        }
+        else if(answer != -1 && answer != pokeNum)
+        {
+            $("#explain").html("");
+            setTimeout(function(){
+                $("#explain").html("Incorrect, try again");
+            }, 10);
         } 
     }
     </script>
@@ -92,5 +92,5 @@
 <img onclick="madeGuess('4');" id = "pokePic4"  src="https://media.giphy.com/media/8hhRga8cVEeFa/giphy.gif"/>
 </div>
 
-<h3>Click on the image matching the Pokemon's name (once it loads)</h3>
+<h3 id="explain">Click on the image matching the Pokemon's name (once it loads)</h3>
 </body>
