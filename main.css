@@ -11,6 +11,9 @@ h1{
     color:#F3F7F0;
     text-align:center;
     font-size:500%;
+    -moz-box-shadow: 0 0 3px #ccc;
+   -webkit-box-shadow: 0 0 3px #ccc;
+    box-shadow: 0 0 3px #ccc;
 }
 h3{
     color:#F3F7F0;

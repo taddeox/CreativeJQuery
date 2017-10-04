@@ -13,6 +13,7 @@
     function initialize(){
         document.getElementById("sound").play();
         answer = -1;
+        document.getElementById("explain").innerHTML = "Click on the image matching the Pokemon's name (once it loads)";
         $("#pokePic1").attr("src","https://media.giphy.com/media/8hhRga8cVEeFa/giphy.gif");
         $("#pokePic2").attr("src","https://media.giphy.com/media/8hhRga8cVEeFa/giphy.gif");
         $("#pokePic3").attr("src","https://media.giphy.com/media/8hhRga8cVEeFa/giphy.gif");
@@ -24,7 +25,7 @@
         var count = 1;
         var nameAns = "";
         for(i = 1; i < 5; i++){
-            var num = Math.floor(Math.random()*700) + 1;        
+            var num = Math.floor(Math.random()*720) + 1;        
             var url = "https://pokeapi.co/api/v2/pokemon/" + num + "/";
             $.getJSON(url,function(data){
                 console.log(data);
@@ -67,6 +68,9 @@
         {
             console.log("YOU WON!!");
             $("#explain").html("CORRECT!!!!!");
+	    setTimeout(function(){
+	       initialize();
+            },200);
         }
         else if(answer != -1 && answer != pokeNum)
         {
