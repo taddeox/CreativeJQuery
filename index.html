@@ -49,11 +49,11 @@
             })
             .done(function() 
             {
-                answer = tempAns;
                 
                 finished = finished +1;
                 if(nameAns != "" && finished > 4){
                     $("#pokeName").html(nameAns);
+                    answer = tempAns;
                 }
                 console.log('getJSON request succeeded!'); 
             })
